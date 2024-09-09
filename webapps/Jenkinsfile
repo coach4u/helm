@@ -1,0 +1,13 @@
+pipeline {
+	agent any
+    stages {
+        stage('Build on k8 ') {
+            steps {           
+                        sh 'pwd'
+                        sh '/usr/local/bin/ helm upgrade --install  webapps-sample webapps --set image.repository=coachrhca/webapps --set image.tag=4'
+
+              			
+            }           
+        }
+    }
+}
