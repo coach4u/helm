@@ -1,0 +1,13 @@
+##helm commands
+helm ls
+helm upgrade --install webapp ./webapps --set image.tag=${BUILD_ID} --kubeconfig $KUBECONFIG --namespace default
+helm history webapp
+[root@ip-172-31-84-16 webapps]# helm history webapp
+REVISION        UPDATED                         STATUS          CHART           APP VERSION     DESCRIPTION
+1               Wed Jul 23 05:32:59 2025        superseded      webapps-0.1.0   1.16.0          Install complete
+2               Wed Jul 23 05:34:54 2025        superseded      webapps-0.1.0   1.16.0          Upgrade complete
+3               Wed Jul 23 07:20:48 2025        superseded      webapps-0.1.0   1.16.0          Upgrade complete
+4               Wed Jul 23 07:29:18 2025        deployed        webapps-0.1.0   1.16.0          Upgrade complete
+
+helm diff upgrade webapp . -f values.yaml
+
